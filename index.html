@@ -8,158 +8,220 @@
 
   <style>
     :root{
-      --bg:#0b1220;
-      --card:rgba(17,26,46,.78);
-      --text:#e9eefc;
-      --muted:#aab6da;
-      --accent:#4aa3ff;
-      --accent2:#59d6b3;
-      --border:rgba(255,255,255,.10);
-      --shadow: 0 14px 38px rgba(0,0,0,.40);
-      --radius:18px;
-      --max: 1100px;
+      /* Match logoets blå look */
+      --bg:#061423;
+      --bg2:#071a30;
+      --card: rgba(10, 28, 52, .78);
+      --text:#eef5ff;
+      --muted:#b7c7e8;
+      --blue:#0b5ea8;     /* logo-ish blå */
+      --blue2:#1a7fd1;    /* lysere blå */
+      --border: rgba(255,255,255,.12);
+      --shadow: 0 16px 42px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1120px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      line-height: 1.55;
       background:
-        radial-gradient(1200px 700px at 18% -12%, rgba(74,163,255,.35), transparent 55%),
-        radial-gradient(900px 600px at 110% 10%, rgba(89,214,179,.22), transparent 55%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.55;
+        radial-gradient(1100px 620px at 18% -12%, rgba(26,127,209,.30), transparent 58%),
+        radial-gradient(900px 520px at 110% 15%, rgba(11,94,168,.25), transparent 58%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
     }
+
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:22px}
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Header */
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
       gap:14px; flex-wrap:wrap;
-      padding:10px 0 18px;
+      padding: 10px 0 18px;
     }
     .brand{
-      display:flex; align-items:center; gap:12px; text-decoration:none;
-      min-width:260px;
+      display:flex; align-items:center; gap:14px;
+      text-decoration:none;
+      min-width: 280px;
     }
-    .logo{
-      width:44px; height:44px; border-radius:14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: var(--shadow);
+    .brand img{
+      height: 62px;
+      width: auto;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 6px;
     }
     .brand strong{display:block; font-size:16px; letter-spacing:.2px}
     .brand span{display:block; font-size:12px; color:var(--muted)}
     nav{display:flex; gap:10px; flex-wrap:wrap}
     nav a{
       text-decoration:none; color:var(--muted); font-size:14px;
-      padding:9px 11px; border-radius:12px;
+      padding: 9px 11px; border-radius: 12px;
       border:1px solid transparent;
     }
-    nav a:hover{background:rgba(255,255,255,.06); color:var(--text); border-color:rgba(255,255,255,.08)}
-    .pillrow{
-      display:flex; gap:10px; flex-wrap:wrap;
-      justify-content:flex-end;
+    nav a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.10);
     }
+
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap}
     .pill{
       display:inline-flex; align-items:center; gap:8px;
-      padding:9px 12px; border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
       text-decoration:none;
-      font-weight:600; font-size:13px;
+      font-weight: 700;
+      font-size: 13px;
     }
     .pill.primary{
-      background:linear-gradient(135deg, rgba(74,163,255,.95), rgba(89,214,179,.85));
-      color:#071020; border:0;
+      background: linear-gradient(135deg, rgba(11,94,168,.95), rgba(26,127,209,.85));
+      border: 0;
+      color: #061423;
     }
 
+    /* Hero */
     .hero{
-      display:grid; grid-template-columns: 1.15fr .85fr;
-      gap:18px; align-items:stretch;
-      margin-top:6px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items:stretch;
+      margin-top: 6px;
     }
-    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
-
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      padding:22px;
-      backdrop-filter: blur(8px);
-    }
+    @media (max-width: 920px){ .hero{grid-template-columns:1fr} }
 
     .heroTitle{
-      font-size:44px; line-height:1.05; margin:0 0 10px;
-      letter-spacing:-.5px;
+      font-size: 44px;
+      line-height: 1.05;
+      margin: 0 0 10px;
+      letter-spacing: -0.6px;
     }
-    @media (max-width: 520px){ .heroTitle{font-size:36px} }
+    @media (max-width: 520px){ .heroTitle{font-size: 36px} }
 
     .lead{color:var(--muted); margin:0 0 16px; font-size:16px}
-    .badges{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 16px}
+
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin: 14px 0 16px}
     .badge{
-      font-size:13px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      padding:8px 10px; border-radius:999px;
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
     }
 
-    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      gap:10px; padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
       text-decoration:none;
-      font-weight:700; font-size:14px;
+      font-weight: 800;
+      font-size: 14px;
     }
     .btn.primary{
-      background:linear-gradient(135deg, rgba(74,163,255,.95), rgba(89,214,179,.85));
-      color:#071020; border:0;
+      background: linear-gradient(135deg, rgba(11,94,168,.95), rgba(26,127,209,.85));
+      border:0;
+      color:#061423;
     }
-    .btn:hover{transform:translateY(-1px)}
+    .btn:hover{transform: translateY(-1px)}
 
-    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px}
-    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
-    .kpi{border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:14px; background:rgba(255,255,255,.04)}
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    @media (max-width: 920px){ .grid3{grid-template-columns:1fr} }
+    .kpi{
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(255,255,255,.04);
+    }
     .kpi strong{display:block; font-size:16px; margin-bottom:6px}
     .kpi span{color:var(--muted); font-size:14px}
 
-    section{margin-top:18px}
-    h2{margin:0 0 10px; font-size:20px}
+    section{margin-top: 18px}
+    h2{margin: 0 0 10px; font-size: 20px}
     .two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    @media (max-width: 900px){ .two{grid-template-columns:1fr} }
+    @media (max-width: 920px){ .two{grid-template-columns:1fr} }
 
-    ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    ul{margin: 10px 0 0; padding-left: 18px; color: var(--muted)}
     .muted{color:var(--muted)}
+    .small{font-size:12px; color:var(--muted)}
+
     .note{
-      margin-top:10px; color:var(--muted); font-size:13px;
-      border-left:3px solid rgba(89,214,179,.55);
-      padding:10px 12px; background:rgba(255,255,255,.04);
-      border-radius:12px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      border-left: 3px solid rgba(26,127,209,.75);
+      padding: 10px 12px;
+      background: rgba(255,255,255,.04);
+      border-radius: 12px;
     }
 
+    .divider{height:1px; background: rgba(255,255,255,.12); margin: 14px 0}
+
+    /* Form */
     input, textarea{
-      width:100%; padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-      color:var(--text); outline:none;
-      font-size:14px;
+      width: 100%;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
     }
-    textarea{min-height:120px; resize:vertical}
-    .formrow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    textarea{min-height: 120px; resize: vertical}
+    .formrow{display:grid; grid-template-columns:1fr 1fr; gap: 10px}
     @media (max-width: 600px){ .formrow{grid-template-columns:1fr} }
 
-    .footer{
-      margin:22px 0 10px; color:var(--muted); font-size:13px;
-      display:flex; gap:12px; flex-wrap:wrap; justify-content:space-between;
-      border-top:1px solid rgba(255,255,255,.10);
-      padding-top:16px;
+    /* Map */
+    .mapWrap{
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
     }
-    .small{font-size:12px; color:var(--muted)}
-    .divider{height:1px; background:rgba(255,255,255,.10); margin:14px 0}
+    .mapWrap iframe{
+      width: 100%;
+      height: 320px;
+      border: 0;
+      display:block;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
+    .footer{
+      margin: 22px 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 16px;
+    }
   </style>
 </head>
 
@@ -167,7 +229,8 @@
   <div class="wrap">
     <header class="topbar" id="top">
       <a class="brand" href="#top" aria-label="Forside">
-        <div class="logo" aria-hidden="true"></div>
+        <!-- Sørg for at logoet ligger i repo som: logo.png -->
+        <img src="logo.png" alt="Bjørns Vinduespolering logo" />
         <div>
           <strong>Bjørns Vinduespolering</strong>
           <span>Bornholm • Hele øen • Enkeltmandsvirksomhed</span>
@@ -177,7 +240,7 @@
       <nav>
         <a href="#ydelser">Ydelser</a>
         <a href="#saadan">Sådan foregår det</a>
-        <a href="#om">Om</a>
+        <a href="#kort">Kort</a>
         <a href="#kontakt">Få tilbud</a>
       </nav>
 
@@ -199,7 +262,7 @@
         <div class="badges">
           <div class="badge">✅ Hurtigt tilbud</div>
           <div class="badge">✅ Fast aftale muligt</div>
-          <div class="badge">✅ MobilePay / bank / faktura</div>
+          <div class="badge">✅ MobilePay / bank</div>
           <div class="badge">✅ Private & erhverv</div>
         </div>
 
@@ -225,8 +288,8 @@
         </div>
 
         <div class="note">
-          <strong>Pris:</strong> Du får prisen ved at sende en forespørgsel på tilbud.
-          Så kan jeg give et fast og fair tilbud ud fra dine vinduer og adgang.
+          <strong>Pris:</strong> Du får prisen ved at sende en forespørgsel på tilbud,
+          så kan jeg give et fast og fair tilbud ud fra dine vinduer og adgang.
         </div>
       </div>
 
@@ -254,7 +317,7 @@
 
         <div style="margin-top:10px">
           <label class="small" for="freq">Ønsket interval (valgfrit)</label>
-          <input id="freq" placeholder="Fx hver 8. uge / engangs / efter behov" />
+          <input id="freq" placeholder="Fx hver 4 uge / engangs / efter behov" />
         </div>
 
         <div style="margin-top:10px">
@@ -263,13 +326,13 @@
         </div>
 
         <div class="note" style="margin-top:12px">
-          <strong>Hurtigere tilbud:</strong> Hvis du kan, så send gerne <strong>billeder af huset fra alle sider</strong>
+          <strong>Hurtigere tilbud:</strong> Send gerne <strong>billeder af huset fra alle sider</strong>
           + billeder af <strong>vinduerne</strong>. Så kan jeg ofte give et tilbud hurtigere og mere præcist.
         </div>
 
         <div class="divider"></div>
 
-        <a class="btn primary" style="width:100%; justify-content:center"
+        <a class="btn primary" style="width:100%"
            id="mailtoBtn"
            href="mailto:Bjoernsvinduespolering@gmail.com?subject=Tilbud%20p%C3%A5%20vinduespolering%20(Bornholm)&body=Hej%20Bj%C3%B8rn%0A%0A">
           ✉️ Send forespørgsel (e-mail)
@@ -305,11 +368,32 @@
           <li>Du sender en forespørgsel (adresse + kort beskrivelse).</li>
           <li>Du får et tilbud og vi aftaler en tid.</li>
           <li>Jeg udfører arbejdet – pænt og ordentligt.</li>
-          <li>Betaling via MobilePay, bank eller faktura (efter aftale).</li>
+          <li>Betaling via MobilePay eller bankoverførsel.</li>
         </ul>
         <div class="note">
           Tip: Jo flere detaljer du giver (og evt. billeder), jo mere præcist kan tilbuddet blive.
         </div>
+      </div>
+    </section>
+
+    <section class="card" id="kort">
+      <h2>Kort</h2>
+      <p class="muted" style="margin-top:0">
+        Jeg kører på <strong>hele Bornholm</strong>. Du er velkommen til at skrive – uanset hvor på øen du bor.
+      </p>
+
+      <div class="mapWrap" aria-label="Kort over Bornholm">
+        <!-- OpenStreetMap embed centreret på Bornholm -->
+        <iframe
+          title="Bornholm kort"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=14.720%2C54.990%2C15.270%2C55.300&layer=mapnik&marker=55.105%2C14.915"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <div class="note">
+        <strong>Tip:</strong> Skriv gerne byen/området i beskeden (fx Rønne, Nexø, Hasle, Aakirkeby osv.).
       </div>
     </section>
 
@@ -325,7 +409,7 @@
       <h2>Handelsbetingelser</h2>
       <p class="muted" style="margin:0">
         <strong>1.</strong> Betaling sker efter udført arbejde, medmindre andet er aftalt.<br/>
-        <strong>2.</strong> Betaling kan ske via MobilePay, bankoverførsel eller faktura (efter aftale).<br/>
+        <strong>2.</strong> Betaling kan ske via MobilePay eller bankoverførsel.<br/>
         <strong>3.</strong> Ved manglende betaling kan der pålægges rykkergebyr og renter i henhold til renteloven.
       </p>
     </section>
@@ -366,6 +450,7 @@
         "Sendt fra hjemmesiden.";
       btn.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
+
     [nameEl, phoneEl, addrEl, freqEl, msgEl].forEach(el => el.addEventListener('input', updateMailto));
     updateMailto();
   </script>
