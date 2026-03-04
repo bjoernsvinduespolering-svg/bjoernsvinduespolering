@@ -1,206 +1,373 @@
 <!doctype html>
 <html lang="da">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bjørns Vinduespolering | Bornholm</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bjørns Vinduespolering | Bornholm</title>
+  <meta name="description" content="Bjørns Vinduespolering kører på hele Bornholm. Få et hurtigt tilbud på vinduespolering til private og erhverv." />
 
-<meta name="description" content="Vinduespolering på Bornholm – hele øen. Få et tilbud hos Bjørns Vinduespolering.">
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:rgba(17,26,46,.78);
+      --text:#e9eefc;
+      --muted:#aab6da;
+      --accent:#4aa3ff;
+      --accent2:#59d6b3;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 14px 38px rgba(0,0,0,.40);
+      --radius:18px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(1200px 700px at 18% -12%, rgba(74,163,255,.35), transparent 55%),
+        radial-gradient(900px 600px at 110% 10%, rgba(89,214,179,.22), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; flex-wrap:wrap;
+      padding:10px 0 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; text-decoration:none;
+      min-width:260px;
+    }
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+    }
+    .brand strong{display:block; font-size:16px; letter-spacing:.2px}
+    .brand span{display:block; font-size:12px; color:var(--muted)}
+    nav{display:flex; gap:10px; flex-wrap:wrap}
+    nav a{
+      text-decoration:none; color:var(--muted); font-size:14px;
+      padding:9px 11px; border-radius:12px;
+      border:1px solid transparent;
+    }
+    nav a:hover{background:rgba(255,255,255,.06); color:var(--text); border-color:rgba(255,255,255,.08)}
+    .pillrow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px; border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      text-decoration:none;
+      font-weight:600; font-size:13px;
+    }
+    .pill.primary{
+      background:linear-gradient(135deg, rgba(74,163,255,.95), rgba(89,214,179,.85));
+      color:#071020; border:0;
+    }
 
-<style>
+    .hero{
+      display:grid; grid-template-columns: 1.15fr .85fr;
+      gap:18px; align-items:stretch;
+      margin-top:6px;
+    }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
 
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#0f172a;
-color:white;
-}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+      backdrop-filter: blur(8px);
+    }
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:25px;
-}
+    .heroTitle{
+      font-size:44px; line-height:1.05; margin:0 0 10px;
+      letter-spacing:-.5px;
+    }
+    @media (max-width: 520px){ .heroTitle{font-size:36px} }
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-}
+    .lead{color:var(--muted); margin:0 0 16px; font-size:16px}
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 16px}
+    .badge{
+      font-size:13px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      padding:8px 10px; border-radius:999px;
+    }
 
-h1{
-margin:0;
-font-size:28px;
-}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px; padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      text-decoration:none;
+      font-weight:700; font-size:14px;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(74,163,255,.95), rgba(89,214,179,.85));
+      color:#071020; border:0;
+    }
+    .btn:hover{transform:translateY(-1px)}
 
-.hero{
-margin-top:40px;
-}
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px}
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
+    .kpi{border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:14px; background:rgba(255,255,255,.04)}
+    .kpi strong{display:block; font-size:16px; margin-bottom:6px}
+    .kpi span{color:var(--muted); font-size:14px}
 
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-margin-bottom:20px;
-}
+    section{margin-top:18px}
+    h2{margin:0 0 10px; font-size:20px}
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width: 900px){ .two{grid-template-columns:1fr} }
 
-button, .btn{
-background:#3b82f6;
-color:white;
-padding:12px 18px;
-border:none;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-cursor:pointer;
-}
+    ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .muted{color:var(--muted)}
+    .note{
+      margin-top:10px; color:var(--muted); font-size:13px;
+      border-left:3px solid rgba(89,214,179,.55);
+      padding:10px 12px; background:rgba(255,255,255,.04);
+      border-radius:12px;
+    }
 
-input, textarea{
-width:100%;
-padding:10px;
-margin-top:6px;
-margin-bottom:12px;
-border-radius:6px;
-border:none;
-}
+    input, textarea{
+      width:100%; padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:var(--text); outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .formrow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width: 600px){ .formrow{grid-template-columns:1fr} }
 
-footer{
-margin-top:40px;
-font-size:14px;
-color:#cbd5f5;
-}
-
-</style>
+    .footer{
+      margin:22px 0 10px; color:var(--muted); font-size:13px;
+      display:flex; gap:12px; flex-wrap:wrap; justify-content:space-between;
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:16px;
+    }
+    .small{font-size:12px; color:var(--muted)}
+    .divider{height:1px; background:rgba(255,255,255,.10); margin:14px 0}
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <header class="topbar" id="top">
+      <a class="brand" href="#top" aria-label="Forside">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <strong>Bjørns Vinduespolering</strong>
+          <span>Bornholm • Hele øen • Enkeltmandsvirksomhed</span>
+        </div>
+      </a>
 
-<div class="container">
+      <nav>
+        <a href="#ydelser">Ydelser</a>
+        <a href="#saadan">Sådan foregår det</a>
+        <a href="#om">Om</a>
+        <a href="#kontakt">Få tilbud</a>
+      </nav>
 
-<header>
+      <div class="pillrow">
+        <a class="pill" href="mailto:Bjoernsvinduespolering@gmail.com">✉️ Mail</a>
+        <a class="pill" href="sms:+4581919104">💬 SMS</a>
+        <a class="pill primary" href="tel:+4581919104">📞 81 91 91 04</a>
+      </div>
+    </header>
 
-<h1>Bjørns Vinduespolering</h1>
+    <main class="hero">
+      <div class="card">
+        <h1 class="heroTitle">Vinduespolering på Bornholm<br/>— nemt, pænt og til tiden.</h1>
+        <p class="lead">
+          Jeg kører på hele øen og hjælper både private og erhverv.
+          Du får en klar aftale, god kvalitet og hurtig respons.
+        </p>
 
-<div>
-Bornholm • Hele øen
-</div>
+        <div class="badges">
+          <div class="badge">✅ Hurtigt tilbud</div>
+          <div class="badge">✅ Fast aftale muligt</div>
+          <div class="badge">✅ MobilePay / bank / faktura</div>
+          <div class="badge">✅ Private & erhverv</div>
+        </div>
 
-</header>
+        <div class="cta">
+          <a class="btn primary" href="#kontakt">✉️ Få et tilbud</a>
+          <a class="btn" href="tel:+4581919104">📞 Ring</a>
+          <a class="btn" href="sms:+4581919104">💬 Send SMS</a>
+        </div>
 
-<div class="hero card">
+        <div class="grid3">
+          <div class="kpi">
+            <strong>Private</strong>
+            <span>Huse, lejligheder, sommerhuse</span>
+          </div>
+          <div class="kpi">
+            <strong>Erhverv</strong>
+            <span>Butikker, kontorer, klinikker</span>
+          </div>
+          <div class="kpi">
+            <strong>Hele Bornholm</strong>
+            <span>Jeg kører på hele øen</span>
+          </div>
+        </div>
 
-<h2>Rene ruder – nemt og ordentligt</h2>
+        <div class="note">
+          <strong>Pris:</strong> Du får prisen ved at sende en forespørgsel på tilbud.
+          Så kan jeg give et fast og fair tilbud ud fra dine vinduer og adgang.
+        </div>
+      </div>
 
-<p>
-Jeg tilbyder vinduespolering på hele Bornholm for både private og erhverv.
-Du får en klar aftale, pænt arbejde og hurtig respons.
-</p>
+      <aside class="card" id="kontakt">
+        <h2>Få et hurtigt tilbud</h2>
+        <p class="muted" style="margin-top:0">
+          Udfyld felterne – så vender jeg tilbage hurtigst muligt.
+        </p>
 
-<p>
-📞 <a href="tel:+4581919104">81 91 91 04</a><br>
-✉️ <a href="mailto:Bjoernsvinduespolering@gmail.com">Bjoernsvinduespolering@gmail.com</a>
-</p>
+        <div class="formrow">
+          <div>
+            <label class="small" for="name">Navn</label>
+            <input id="name" placeholder="Fx Mette Jensen" />
+          </div>
+          <div>
+            <label class="small" for="phone">Telefon</label>
+            <input id="phone" placeholder="Fx 22 33 44 55" />
+          </div>
+        </div>
 
-<a class="btn" href="#kontakt">Få et tilbud</a>
+        <div style="margin-top:10px">
+          <label class="small" for="addr">Adresse</label>
+          <input id="addr" placeholder="Vej + by" />
+        </div>
 
-</div>
+        <div style="margin-top:10px">
+          <label class="small" for="freq">Ønsket interval (valgfrit)</label>
+          <input id="freq" placeholder="Fx hver 8. uge / engangs / efter behov" />
+        </div>
 
+        <div style="margin-top:10px">
+          <label class="small" for="msg">Besked</label>
+          <textarea id="msg" placeholder="Kort beskrivelse: hus/lejlighed, 1-2 plan, særlige vinduer, adgang osv."></textarea>
+        </div>
 
-<div class="card">
+        <div class="note" style="margin-top:12px">
+          <strong>Hurtigere tilbud:</strong> Hvis du kan, så send gerne <strong>billeder af huset fra alle sider</strong>
+          + billeder af <strong>vinduerne</strong>. Så kan jeg ofte give et tilbud hurtigere og mere præcist.
+        </div>
 
-<h2>Ydelser</h2>
+        <div class="divider"></div>
 
-<ul>
-<li>Vinduespolering udvendigt</li>
-<li>Indvendig pudsning efter aftale</li>
-<li>Private boliger</li>
-<li>Sommerhuse</li>
-<li>Butikker og erhverv</li>
-</ul>
+        <a class="btn primary" style="width:100%; justify-content:center"
+           id="mailtoBtn"
+           href="mailto:Bjoernsvinduespolering@gmail.com?subject=Tilbud%20p%C3%A5%20vinduespolering%20(Bornholm)&body=Hej%20Bj%C3%B8rn%0A%0A">
+          ✉️ Send forespørgsel (e-mail)
+        </a>
 
-</div>
+        <div class="cta" style="margin-top:10px">
+          <a class="btn" style="flex:1" href="sms:+4581919104">💬 Alternativ: SMS</a>
+          <a class="btn" style="flex:1" href="tel:+4581919104">📞 Ring</a>
+        </div>
 
+        <p class="small" style="margin:10px 0 0">
+          Mail: <a href="mailto:Bjoernsvinduespolering@gmail.com">Bjoernsvinduespolering@gmail.com</a> •
+          Tlf: <a href="tel:+4581919104">81 91 91 04</a>
+        </p>
+      </aside>
+    </main>
 
-<div class="card">
+    <section class="two" id="ydelser">
+      <div class="card">
+        <h2>Ydelser</h2>
+        <ul>
+          <li>Vinduespolering udvendigt</li>
+          <li>Indvendigt efter aftale</li>
+          <li>Glaspartier / spejle</li>
+          <li>Sommerhuse og flyttepuds efter behov</li>
+          <li>Erhvervsaftaler med fast interval</li>
+        </ul>
+      </div>
 
-<h2>Priser</h2>
+      <div class="card" id="saadan">
+        <h2>Sådan foregår det</h2>
+        <ul>
+          <li>Du sender en forespørgsel (adresse + kort beskrivelse).</li>
+          <li>Du får et tilbud og vi aftaler en tid.</li>
+          <li>Jeg udfører arbejdet – pænt og ordentligt.</li>
+          <li>Betaling via MobilePay, bank eller faktura (efter aftale).</li>
+        </ul>
+        <div class="note">
+          Tip: Jo flere detaljer du giver (og evt. billeder), jo mere præcist kan tilbuddet blive.
+        </div>
+      </div>
+    </section>
 
-<p>
-Prisen afhænger af antal vinduer og adgang.  
-Kontakt mig for et fast tilbud.
-</p>
+    <section class="card" id="om">
+      <h2>Om virksomheden</h2>
+      <p class="muted" style="margin:0">
+        Bjørns Vinduespolering er en enkeltmandsvirksomhed på Bornholm.
+        Fokus er god kvalitet, klare aftaler og at det skal være nemt for dig som kunde.
+      </p>
+    </section>
 
-<ul>
-<li>Typisk hus: fra ca. 250 – 600 kr</li>
-<li>Sommerhuse: efter aftale</li>
-<li>Erhverv: fast pris muligt</li>
-</ul>
+    <section class="card">
+      <h2>Handelsbetingelser</h2>
+      <p class="muted" style="margin:0">
+        <strong>1.</strong> Betaling sker efter udført arbejde, medmindre andet er aftalt.<br/>
+        <strong>2.</strong> Betaling kan ske via MobilePay, bankoverførsel eller faktura (efter aftale).<br/>
+        <strong>3.</strong> Ved manglende betaling kan der pålægges rykkergebyr og renter i henhold til renteloven.
+      </p>
+    </section>
 
-</div>
+    <footer class="footer">
+      <div>
+        © <span id="year"></span> Bjørns Vinduespolering<br/>
+        <span class="small">Enkeltmandsvirksomhed • CVR: 45963152 • Bornholm</span>
+      </div>
+      <div class="small">
+        Tlf: <a href="tel:+4581919104">81 91 91 04</a> •
+        Mail: <a href="mailto:Bjoernsvinduespolering@gmail.com">Bjoernsvinduespolering@gmail.com</a>
+      </div>
+    </footer>
+  </div>
 
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<div class="card" id="kontakt">
+    const nameEl = document.getElementById('name');
+    const phoneEl = document.getElementById('phone');
+    const addrEl = document.getElementById('addr');
+    const freqEl = document.getElementById('freq');
+    const msgEl = document.getElementById('msg');
+    const btn = document.getElementById('mailtoBtn');
 
-<h2>Få et tilbud</h2>
-
-<form action="mailto:Bjoernsvinduespolering@gmail.com" method="post" enctype="text/plain">
-
-<label>Navn</label>
-<input type="text" name="navn">
-
-<label>Telefon</label>
-<input type="text" name="telefon">
-
-<label>Adresse</label>
-<input type="text" name="adresse">
-
-<label>Besked</label>
-<textarea name="besked"></textarea>
-
-<button type="submit">Send forespørgsel</button>
-
-</form>
-
-</div>
-
-
-<div class="card">
-
-<h2>Handelsbetingelser</h2>
-
-<p>
-1. Betaling sker efter udført arbejde, medmindre andet er aftalt.
-</p>
-
-<p>
-2. Betaling kan ske via MobilePay, bankoverførsel eller faktura.
-</p>
-
-<p>
-3. Ved manglende betaling kan der pålægges rykkergebyr jf. renteloven.
-</p>
-
-</div>
-
-
-<footer>
-
-<p>
-Bjørns Vinduespolering<br>
-Enkeltmandsvirksomhed<br>
-CVR: 45963152<br>
-Bornholm
-</p>
-
-<p>
-Telefon: 81 91 91 04<br>
-Mail: Bjoernsvinduespolering@gmail.com
-</p>
-
-</footer>
-
-</div>
-
+    function updateMailto(){
+      const email = "Bjoernsvinduespolering@gmail.com";
+      const subject = "Tilbud på vinduespolering (Bornholm)";
+      const body =
+        "Hej Bjørn\n\n" +
+        "Navn: " + (nameEl.value || "") + "\n" +
+        "Telefon: " + (phoneEl.value || "") + "\n" +
+        "Adresse: " + (addrEl.value || "") + "\n" +
+        "Ønsket interval: " + (freqEl.value || "") + "\n\n" +
+        "Besked:\n" + (msgEl.value || "") + "\n\n" +
+        "Tip: Du kan vedhæfte billeder af huset fra alle sider + vinduer for hurtigere tilbud.\n\n" +
+        "Sendt fra hjemmesiden.";
+      btn.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+    [nameEl, phoneEl, addrEl, freqEl, msgEl].forEach(el => el.addEventListener('input', updateMailto));
+    updateMailto();
+  </script>
 </body>
 </html>
